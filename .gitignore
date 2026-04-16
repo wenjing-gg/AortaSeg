@@ -12,6 +12,8 @@ data/
 *.pth
 *.png
 *.csv
+!assets/readme/*.png
+ER-AortaSeg.docx
 checkpoints_*/
 TTAprediction/
 output_*/
