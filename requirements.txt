@@ -1,0 +1,8 @@
+torch
+numpy
+scipy
+nibabel
+pandas
+openpyxl
+tqdm
+totalsegmentator
