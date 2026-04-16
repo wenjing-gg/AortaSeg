@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+import sys
 
 import nibabel as nib
 import numpy as np
@@ -12,10 +13,14 @@ from scipy.ndimage import distance_transform_edt
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from aortaseg import build_aortaseg
-from dataset_CTA_block import CTABlockDataset3D
-from metrics import calculate_all_metrics_3d_multiclass_mm
-from utils import filter_topk_lumen_components, postprocess_lumen_and_refine_channels
+from aortaseg.data import CTABlockDataset3D
+from aortaseg.metrics import calculate_all_metrics_3d_multiclass_mm
+from aortaseg.utils import filter_topk_lumen_components, postprocess_lumen_and_refine_channels
 
 
 BG_CLASS = 0

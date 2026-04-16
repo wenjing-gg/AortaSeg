@@ -4,6 +4,7 @@ import argparse
 import datetime
 import math
 from pathlib import Path
+import sys
 
 import numpy as np
 import torch
@@ -11,11 +12,15 @@ import torch.optim as optim
 from torch.optim.lr_scheduler import LambdaLR
 from tqdm import tqdm
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from aortaseg import build_aortaseg
-from dataset_CTA_block import get_cta_block_data_loaders
-from evaluate_case_level import evaluate_case_level_with_loss, print_case_level_results
-from loss import SegmentationLoss3D
-from utils import wait_for_gpu
+from aortaseg.data import get_cta_block_data_loaders
+from aortaseg.evaluation import evaluate_case_level_with_loss, print_case_level_results
+from aortaseg.losses import SegmentationLoss3D
+from aortaseg.utils import wait_for_gpu
 
 
 MODEL_NAME = "AortaSeg"

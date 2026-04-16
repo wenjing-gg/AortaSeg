@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from collections import defaultdict
 from pathlib import Path
+import sys
 
 import numpy as np
 import torch
@@ -10,9 +11,13 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from aortaseg import build_aortaseg
-from dataset_CTA_block import CTABlockDataset3D
-from utils import wait_for_gpu
+from aortaseg.data import CTABlockDataset3D
+from aortaseg.utils import wait_for_gpu
 
 
 class DeepInversionFeatureHook:

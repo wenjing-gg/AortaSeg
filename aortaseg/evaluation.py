@@ -8,7 +8,7 @@ import numpy as np
 import torch
 from tqdm import tqdm
 
-from metrics import calculate_all_metrics_3d_multiclass_mm
+from .metrics import calculate_all_metrics_3d_multiclass_mm
 
 
 def _forward(model, images: torch.Tensor, return_all: bool = False):
