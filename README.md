@@ -22,10 +22,14 @@ AortaSeg is a compact research codebase for aortic CTA segmentation. It is desig
 The figures and summary tables below are extracted or condensed from the manuscript draft `ER-AortaSeg.docx` so the repository homepage can show the method, data coverage, and headline results directly on GitHub.
 
 <p align="center">
-  <img src="assets/readme/figure-1-variability.png" alt="Aortic dissection variability" width="49%">
-  <img src="assets/readme/figure-2-domain-shift.png" alt="Domain shift visualization" width="49%">
+  <img src="assets/readme/figure-1-variability.png" alt="Aortic dissection variability" width="100%">
 </p>
-<p align="center"><em>Figure 1. Aortic dissection variability and generalisable segmentation target. Figure 2. Multi-level domain shift between TAAD and external cohorts.</em></p>
+<p align="center"><em>Figure 1. Aortic dissection variability and generalisable segmentation target.</em></p>
+
+<p align="center">
+  <img src="assets/readme/figure-2-domain-shift.png" alt="Domain shift visualization" width="100%">
+</p>
+<p align="center"><em>Figure 2. Multi-level domain shift between TAAD and external cohorts.</em></p>
 
 ### Cohort Overview
 
@@ -36,7 +40,7 @@ Condensed from Table 1 in the manuscript.
 | imageTAAD | In-distribution training and validation | 120 | Full aorta | Public |
 | imageTBAD | External OOD1 test cohort | 100 | Preoperative type-B CTA | Public |
 | AVT-AD | External OOD2 test cohort | 4 | Whole-body aortic tree | Public |
-| ANZHEN | External OOD3 test cohort | 38 | Thoracic aorta | Private |
+| ANZHEN | External OOD3 test cohort | 33 | Thoracic aorta | Private |
 
 ### Headline Segmentation Results
 
@@ -48,17 +52,6 @@ Condensed from Table 2. Values below report AortaSeg performance across the inte
 | TBAD | 0.8092 | 0.7597 | 18.13 | 25.76 | 5.15 | 7.21 |
 | AVT-AD | 0.7263 | 0.8612 | 29.08 | 10.70 | 4.66 | 2.30 |
 | ANZHEN | 0.8802 | 0.8713 | 10.10 | 19.70 | 2.10 | 4.01 |
-
-### External Test-Time Adaptation Summary
-
-Condensed from the TTA block at the end of Table 2.
-
-| Metric | Before TTA | After TTA | Gain |
-| --- | ---: | ---: | --- |
-| mDice | 0.7655 | 0.7835 | +0.0181 `[+0.0104, +0.0257]` |
-| mIoU | 0.6331 | 0.6563 | +0.0232 `[+0.0149, +0.0310]` |
-| mSensitivity | 0.8045 | 0.8243 | +0.0198 `[+0.0101, +0.0286]` |
-| mPPV | 0.7426 | 0.7597 | +0.0171 `[+0.0090, +0.0252]` |
 
 <p align="center">
   <img src="assets/readme/figure-4-qualitative-analysis.png" alt="Qualitative segmentation analysis" width="49%">
